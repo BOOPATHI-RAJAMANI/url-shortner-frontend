@@ -1,0 +1,105 @@
+:root {
+  --primary-color: #1E40AF;
+  --primary-hover-color: #1a3a9e;
+  --secondary-color: #ffffff;
+  --secondary-accent: #3B82F6;
+  --background-color: #F8FAFC;
+  --card-color: #FFFFFF;
+  --border-color: #E2E8F0;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --success-color: #16A34A;
+  --danger-color: #DC2626;
+  --text-primary: #0F172A;
+  --text-muted: #64748B;
+  --button-shadow: rgba(30, 64, 175, 0.25);
+  --input-focus-color: #3B82F6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--button-shadow);
+  width: 100%;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: var(--primary-hover-color);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px var(--button-shadow);
+}
+
+input {
+  width: 85%;
+  padding: 14px;
+  margin: 15px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-color);
+  color: var(--text-primary);
+}
+
+input:focus {
+  border-color: var(--input-focus-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Icon animations */
+.icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  color: var(--secondary-accent);
+}
+
+/* Grid Icon hover */
+.grid-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.grid-icon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
