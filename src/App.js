@@ -87,26 +87,27 @@ function App() {
   };
 
   const fetchQRCode = async () => {
-    if (!shortenedUrl) {
-      alert("Please shorten a URL first.");
-      return;
-    }
+  if (!shortenedUrl) {
+    alert("Please shorten a URL first.");
+    return;
+  }
 
-    try {
-      const aliasFromUrl = shortenedUrl.split("/").pop();
-      const response = await axios.get(`https://url-shortner-backend-36so.onrender.com/api/url/qrcode/${aliasFromUrl}`);
+  try {
+    const response = await axios.get(
+      `https://url-shortner-backend-36so.onrender.com/url/qrcode?url=${shortenedUrl}`
+    );
 
-      if (response.data.qrCode) {
-        setQrCode(response.data.qrCode);
-      } else {
-        throw new Error("QR code generation failed");
-      }
-    } catch (error) {
-      console.error("Error fetching QR code:", error);
-      setQrCode("");
-      alert("Failed to fetch QR Code.");
+    if (response.data.qrCode) {
+      setQrCode(response.data.qrCode);
+    } else {
+      throw new Error("QR code generation failed");
     }
-  };
+  } catch (error) {
+    console.error("Error fetching QR code:", error);
+    setQrCode("");
+    alert("Failed to fetch QR Code.");
+  }
+};
 
   return (
     <Box
