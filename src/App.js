@@ -48,7 +48,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://localhost:5002/api/url/shorten", {
+      const response = await fetch("https://url-shortner-backend-36so.onrender.com/api/url/shorten", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ originalUrl: url }),
@@ -57,7 +57,7 @@ function App() {
       const data = await response.json();
 
       if (response.ok) {
-        setShortenedUrl(`http://localhost:5002/api/url/${data.alias}`);
+        setShortenedUrl(`https://url-shortner-backend-36so.onrender.com/api/url/${data.alias}`);
       } else {
         alert(`Failed to shorten URL: ${data.message}`);
       }
@@ -94,7 +94,7 @@ function App() {
 
     try {
       const aliasFromUrl = shortenedUrl.split("/").pop();
-      const response = await axios.get(`http://localhost:5002/api/url/qrcode/${aliasFromUrl}`);
+      const response = await axios.get(`https://url-shortner-backend-36so.onrender.com/api/url/qrcode/${aliasFromUrl}`);
 
       if (response.data.qrCode) {
         setQrCode(response.data.qrCode);
